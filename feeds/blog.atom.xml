@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-19T15:20:00+05:30</updated><entry><title>NZEC go away: Taking input in python for Codechef</title><link href="http://vaseem-khan.github.io/posts/2014/12/nzec-go-away/" rel="alternate"></link><updated>2014-12-19T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/nzec-go-away/</id><summary type="html">&lt;p&gt;Taking input in python for SPOJ&lt;/p&gt;
+&lt;p&gt;1.Reading Till EOF(End of file) in python&lt;/p&gt;
+&lt;p&gt;On SPOJ there are question on which you have to read the input till end of line&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="c"&gt;# your code here&lt;/span&gt;
+        &lt;span class="c"&gt;#in=raw_input()&lt;/span&gt;
+
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;break&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Explanation :
+We user here exception as when EOF is reached  input procedure will return exception which is catches by except block so this will  terminate at EOF.&lt;/p&gt;
+&lt;p&gt;2.Trick for input  where you are give no of test case and each test case  it has n item (in this example let it be 3)&lt;/p&gt;
+&lt;p&gt;5&lt;/p&gt;
+&lt;p&gt;1 2 3&lt;/p&gt;
+&lt;p&gt;1 2 2&lt;/p&gt;
+&lt;p&gt;12 45 232&lt;/p&gt;
+&lt;p&gt;21 343 54&lt;/p&gt;
+&lt;p&gt;121 232 43&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()]&lt;/span&gt;
+    &lt;span class="c"&gt;#algorithm  to solve the question&lt;/span&gt;
+    &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;-=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Explanation:
+Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required&lt;/p&gt;</summary><category term="spoj"></category><category term="codechef"></category><category term="python"></category></entry><entry><title>Caio</title><link href="http://vaseem-khan.github.io/posts/2014/12/my-first-post/" rel="alternate"></link><updated>2014-12-19T10:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/my-first-post/</id><summary type="html">&lt;p&gt;This is the content of my first blog post with many to come.&lt;/p&gt;
+&lt;p&gt;I will post mainly about Technology. To be more specific: python, django, git, best software practices...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The blog is made with Pelican and gh-pages.&lt;/p&gt;</summary><category term="pelican"></category><category term="Start"></category></entry></feed>
