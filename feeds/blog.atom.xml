@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-19T15:20:00+05:30</updated><entry><title>NZEC go away: Taking input in python for Codechef</title><link href="http://vaseem-khan.github.io/posts/2014/12/nzec-go-away/" rel="alternate"></link><updated>2014-12-19T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/nzec-go-away/</id><summary type="html">&lt;p&gt;Taking input in python for SPOJ&lt;/p&gt;
-&lt;p&gt;1.Reading Till EOF(End of file) in python&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>YourCodeur</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-22T15:20:00+05:30</updated><entry><title>Search functionality to a simple note-taking application Using Solr</title><link href="http://vaseem-khan.github.io/posts/2014/12/solr101/" rel="alternate"></link><updated>2014-12-22T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-22:posts/2014/12/solr101/</id><summary type="html">&lt;p&gt;This is a simple django-haystack example that uses Solr as the backend. It is based on the official &lt;a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html"&gt;django-haystack tutorial&lt;/a&gt;. Here, we’ll be adding &lt;strong&gt;search functionality to a simple note-taking application.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;Basic Setup:&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Django&lt;/li&gt;
+&lt;li&gt;django-haystack&lt;/li&gt;
+&lt;li&gt;pysolr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Install the following using the commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install django
+&lt;span class="nv"&gt;$ &lt;/span&gt;pip install django-haystack
+&lt;span class="nv"&gt;$ &lt;/span&gt;pip install pysolr
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;&lt;strong&gt;Solr setup:&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;For haystack connections, i am using Solr as the backend so Solr needs to be setup.To run the Solr server, Java must be installed on your machine. If you don't have Java installed in your system, first install it using the steps below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo add-apt-repository ppa:webupd8team/java
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install oracle-java7-installer
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install oracle-java7-set-default
+&lt;span class="nv"&gt;$ &lt;/span&gt;java -version
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After installing java, download Solr from its &lt;strong&gt;&lt;a href="https://lucene.apache.org/solr/downloads.html"&gt;official site&lt;/a&gt;&lt;/strong&gt; and extract it. I used Apache Solr 4.10.1. It is not necessary that it must reside in the project directory. Now after extracting it, go to the extracted folder in terminal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;extracted_folder_path&amp;gt;/solr-4.10.1/example/
+&lt;span class="nv"&gt;$ &lt;/span&gt;java -jar start.jar
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will start Solr server on port 8983. You can check if the Solr server has started by typing &lt;a href="http://127.0.0.1:8983/solr/"&gt;http://127.0.0.1:8983/solr/&lt;/a&gt; on your browser.&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;Running the project&lt;/strong&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt; and in the terminal, move into the project simple_django_haystack_solr_example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;your_project_path&amp;gt;/simple_django_haystack_solr_example/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Setup the database:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I have used mysql as the database for the project. For that ,you will have to create a database in mysql using       its shell. You can use any name for your database but then change the database name  in your project's settings.py file accordingly.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mysql&amp;gt; create database solr_tutorial character set utf8
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now move into the simple_django_haystack_solr_example folder in your terminal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; &amp;lt;your_project_path&amp;gt;/simple_django_haystack_solr_example/
+&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py syncdb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will create all the database tables for our project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Generate the schema&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Solr’s configuration is XML-based, so we’ll need to manually regenerate the schema. Run the following command first from your project inside terminal, drop the XML output in your Solr’s schema.xml file and restart your Solr  server.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py build_solr_schema
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Solr's xml file can be found at the following path:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&amp;lt;extracted_folder_path&amp;gt;/solr-4.10.1/example/solr/collection1/conf/schema.xml
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I have added my Solr conf file for schema.xml in case you get stuck here.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Create some test data&lt;/strong&gt; for creating the indexes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Start solr server:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo java -jar start.jar
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Build solr index:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py rebuild_index
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;By doing this, you’ll get some totals of how many models were processed and placed in the index.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Run the Django development server:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py runserver
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Go to search page:&lt;/strong&gt;
+    &lt;a href="http://localhost:8000/search"&gt;http://localhost:8000/search&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="Solr"></category></entry><entry><title>NZEC go away: Taking input in python for Codechef</title><link href="http://vaseem-khan.github.io/posts/2014/12/nzec-go-away/" rel="alternate"></link><updated>2014-12-19T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/nzec-go-away/</id><summary type="html">&lt;p&gt;Taking input in python for SPOJ&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Reading Till EOF(End of file) in python&lt;/p&gt;
 &lt;p&gt;On SPOJ there are question on which you have to read the input till end of line&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -12,9 +112,10 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Explanation :
-We user here exception as when EOF is reached  input procedure will return exception which is catches by except block so this will  terminate at EOF.&lt;/p&gt;
-&lt;p&gt;2.Trick for input  where you are give no of test case and each test case  it has n item (in this example let it be 3)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; We user here exception as when EOF is reached  input procedure will return exception which is catches by except block so this will  terminate at EOF.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trick for input  where you are give no of test case and each test case  it has n item (in this example let it be 3)&lt;/p&gt;
 &lt;p&gt;5&lt;/p&gt;
 &lt;p&gt;1 2 3&lt;/p&gt;
 &lt;p&gt;1 2 2&lt;/p&gt;
@@ -29,8 +130,9 @@ We user here exception as when EOF is reached  input procedure will return excep
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Explanation:
-Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required&lt;/p&gt;</summary><category term="spoj"></category><category term="codechef"></category><category term="python"></category></entry><entry><title>Caio</title><link href="http://vaseem-khan.github.io/posts/2014/12/my-first-post/" rel="alternate"></link><updated>2014-12-19T10:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/my-first-post/</id><summary type="html">&lt;p&gt;This is the content of my first blog post with many to come.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="spoj"></category><category term="codechef"></category><category term="python"></category></entry><entry><title>Caio</title><link href="http://vaseem-khan.github.io/posts/2014/12/my-first-post/" rel="alternate"></link><updated>2014-12-19T10:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/my-first-post/</id><summary type="html">&lt;p&gt;This is the content of my first blog post with many to come.&lt;/p&gt;
 &lt;p&gt;I will post mainly about Technology. To be more specific: python, django, git, best software practices...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Blog - Blog</title>
+        <title>YourCodeur  - Blog</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
    
@@ -23,7 +23,7 @@
 <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
-                <h1><a href="..">Blog </a></h1>
+                <h1><a href="..">YourCodeur  </a></h1>
                 <nav><ul>
                     <li class="active"><a href="../category/blog.html">Blog</a></li>
                 </ul></nav>
@@ -33,78 +33,120 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../posts/2014/12/nzec-go-away/">NZEC go away: Taking input in python for Codechef</a></h1> 
+                    <h1 class="entry-title"><a href="../posts/2014/12/solr101/">Search functionality to a simple note-taking application Using Solr</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2014-12-19T15:20:00+05:30">
-                Fri 19 December 2014
+        <abbr class="published" title="2014-12-22T15:20:00+05:30">
+                Mon 22 December 2014
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="../author/vaseem-ahmed-khan.html">Vaseem Ahmed Khan</a>
         </address>
 <p>In <a href="../category/blog.html">Blog</a>. </p>
-<p>tags: <a href="../tag/spoj.html">spoj</a><a href="../tag/codechef.html">codechef</a><a href="../tag/python.html">python</a></p></footer><!-- /.post-info --><p>Taking input in python for SPOJ</p>
-<p>1.Reading Till EOF(End of file) in python</p>
-<p>On SPOJ there are question on which you have to read the input till end of line</p>
-<div class="highlight"><pre><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c"># your code here</span>
-        <span class="c">#in=raw_input()</span>
-
-    <span class="k">except</span> <span class="p">:</span>
-        <span class="k">break</span>
+<p>tags: <a href="../tag/solr.html">Solr</a></p></footer><!-- /.post-info --><p>This is a simple django-haystack example that uses Solr as the backend. It is based on the official <a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html">django-haystack tutorial</a>. Here, we’ll be adding <strong>search functionality to a simple note-taking application.</strong></p>
+<h4><strong>Basic Setup:</strong></h4>
+<ul>
+<li>Django</li>
+<li>django-haystack</li>
+<li>pysolr</li>
+</ul>
+<p>Install the following using the commands:</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install django
+<span class="nv">$ </span>pip install django-haystack
+<span class="nv">$ </span>pip install pysolr
 </pre></div>
 
 
-<p>Explanation :
-We user here exception as when EOF is reached  input procedure will return exception which is catches by except block so this will  terminate at EOF.</p>
-<p>2.Trick for input  where you are give no of test case and each test case  it has n item (in this example let it be 3)</p>
-<p>5</p>
-<p>1 2 3</p>
-<p>1 2 2</p>
-<p>12 45 232</p>
-<p>21 343 54</p>
-<p>121 232 43</p>
-<div class="highlight"><pre><span class="n">t</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">t</span><span class="p">:</span>
-    <span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
-    <span class="c">#algorithm  to solve the question</span>
-    <span class="n">t</span><span class="o">-=</span><span class="mi">1</span>
+<h5><strong>Solr setup:</strong></h5>
+<p>For haystack connections, i am using Solr as the backend so Solr needs to be setup.To run the Solr server, Java must be installed on your machine. If you don't have Java installed in your system, first install it using the steps below:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo add-apt-repository ppa:webupd8team/java
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install oracle-java7-installer
+<span class="nv">$ </span>sudo apt-get install oracle-java7-set-default
+<span class="nv">$ </span>java -version
 </pre></div>
 
 
-<p>Explanation:
-Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required</p><p>There are <a href="../posts/2014/12/nzec-go-away/#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-        
+<p>After installing java, download Solr from its <strong><a href="https://lucene.apache.org/solr/downloads.html">official site</a></strong> and extract it. I used Apache Solr 4.10.1. It is not necessary that it must reside in the project directory. Now after extracting it, go to the extracted folder in terminal.</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;extracted_folder_path&gt;/solr-4.10.1/example/
+<span class="nv">$ </span>java -jar start.jar
+</pre></div>
 
- 
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href="../posts/2014/12/my-first-post/" rel="bookmark" title="Permalink to Caio">Caio</a></h1>
-                </header>
-                
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-12-19T10:20:00+05:30">
-                Fri 19 December 2014
-        </abbr>
 
-        <address class="vcard author">
-                By <a class="url fn" href="../author/vaseem-ahmed-khan.html">Vaseem Ahmed Khan</a>
-        </address>
-<p>In <a href="../category/blog.html">Blog</a>. </p>
-<p>tags: <a href="../tag/pelican.html">pelican</a><a href="../tag/start.html">Start</a></p></footer><!-- /.post-info -->                <p>Let it begin</p>
-                <a class="readmore" href="../posts/2014/12/my-first-post/">read more</a>
-<p>There are <a href="../posts/2014/12/my-first-post/#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
+<p>This will start Solr server on port 8983. You can check if the Solr server has started by typing <a href="http://127.0.0.1:8983/solr/">http://127.0.0.1:8983/solr/</a> on your browser.</p>
+<h4><strong>Running the project</strong></h4>
+<ol>
+<li>
+<p><strong>Download</strong> and in the terminal, move into the project simple_django_haystack_solr_example.</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;your_project_path&gt;/simple_django_haystack_solr_example/
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Setup the database:</strong></p>
+<p>I have used mysql as the database for the project. For that ,you will have to create a database in mysql using       its shell. You can use any name for your database but then change the database name  in your project's settings.py file accordingly.</p>
+<div class="highlight"><pre>mysql&gt; create database solr_tutorial character set utf8
+</pre></div>
+
+
+<p>Now move into the simple_django_haystack_solr_example folder in your terminal.</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;your_project_path&gt;/simple_django_haystack_solr_example/
+<span class="nv">$ </span>python manage.py syncdb
+</pre></div>
+
+
+<p>This will create all the database tables for our project.</p>
+</li>
+<li>
+<p><strong>Generate the schema</strong></p>
+<p>Solr’s configuration is XML-based, so we’ll need to manually regenerate the schema. Run the following command first from your project inside terminal, drop the XML output in your Solr’s schema.xml file and restart your Solr  server.</p>
+<div class="highlight"><pre><span class="nv">$ </span>python manage.py build_solr_schema
+</pre></div>
+
+
+<p>Solr's xml file can be found at the following path:</p>
+<div class="highlight"><pre>&lt;extracted_folder_path&gt;/solr-4.10.1/example/solr/collection1/conf/schema.xml
+</pre></div>
+
+
+<p>I have added my Solr conf file for schema.xml in case you get stuck here.</p>
+</li>
+<li>
+<p><strong>Create some test data</strong> for creating the indexes.</p>
+</li>
+<li>
+<p><strong>Start solr server:</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo java -jar start.jar
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Build solr index:</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>python manage.py rebuild_index
+</pre></div>
+
+
+<p>By doing this, you’ll get some totals of how many models were processed and placed in the index.</p>
+</li>
+<li>
+<p><strong>Run the Django development server:</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>python manage.py runserver
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Go to search page:</strong>
+    <a href="http://localhost:8000/search">http://localhost:8000/search</a></p>
+</li>
+</ol><p>There are <a href="../posts/2014/12/solr101/#disqus_thread">comments</a>.</p>                </article>
 <p class="paginator">
-    Page 1 / 1
+    Page 1 / 3
+        <a href="../category/blog2.html">&raquo;</a>
 </p>
+            </aside><!-- /#featured -->
             </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
