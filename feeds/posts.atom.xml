@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>YourCodeur</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/blog.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-22T15:20:00+05:30</updated><entry><title>Search functionality to a simple note-taking application Using Solr</title><link href="http://vaseem-khan.github.io/posts/2014/12/solr101/" rel="alternate"></link><updated>2014-12-22T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-22:posts/2014/12/solr101/</id><summary type="html">&lt;p&gt;This is a simple django-haystack example that uses Solr as the backend. It is based on the official &lt;a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html"&gt;django-haystack tutorial&lt;/a&gt;. Here, we’ll be adding &lt;strong&gt;search functionality to a simple note-taking application.&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Vaseem's blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/posts.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-23T13:59:33+05:30</updated><entry><title>Solr Setup 101</title><link href="http://vaseem-khan.github.io/solr-setup-101/" rel="alternate"></link><updated>2014-12-23T13:59:33+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-23:solr-setup-101/</id><summary type="html">&lt;p&gt;This is a simple django-haystack example that uses Solr as the backend. It is based on the official &lt;a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html"&gt;django-haystack tutorial&lt;/a&gt;. Here, we’ll be adding &lt;strong&gt;search functionality to a simple note-taking application.&lt;/strong&gt;&lt;/p&gt;
 &lt;h4&gt;&lt;strong&gt;Basic Setup:&lt;/strong&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Django&lt;/li&gt;
@@ -97,7 +97,8 @@
 &lt;p&gt;&lt;strong&gt;Go to search page:&lt;/strong&gt;
     &lt;a href="http://localhost:8000/search"&gt;http://localhost:8000/search&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary><category term="Solr"></category></entry><entry><title>NZEC go away: Taking input in python for Codechef</title><link href="http://vaseem-khan.github.io/posts/2014/12/nzec-go-away/" rel="alternate"></link><updated>2014-12-19T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/nzec-go-away/</id><summary type="html">&lt;p&gt;Taking input in python for SPOJ&lt;/p&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="https://github.com/rahulgupta92"&gt;credits: Rahul Gupta&lt;/a&gt;&lt;/p&gt;</summary><category term="Solr"></category></entry><entry><title>NZEC go away</title><link href="http://vaseem-khan.github.io/nzec-go-away/" rel="alternate"></link><updated>2014-12-19T15:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:nzec-go-away/</id><summary type="html">&lt;p&gt;Taking input in python for SPOJ&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Reading Till EOF(End of file) in python&lt;/p&gt;
@@ -132,7 +133,7 @@
 
 &lt;p&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary><category term="spoj"></category><category term="codechef"></category><category term="python"></category></entry><entry><title>Caio</title><link href="http://vaseem-khan.github.io/posts/2014/12/my-first-post/" rel="alternate"></link><updated>2014-12-19T10:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:posts/2014/12/my-first-post/</id><summary type="html">&lt;p&gt;This is the content of my first blog post with many to come.&lt;/p&gt;
+&lt;/ol&gt;</summary><category term="spoj"></category><category term="codechef"></category><category term="python"></category></entry><entry><title>Caio</title><link href="http://vaseem-khan.github.io/my-first-post/" rel="alternate"></link><updated>2014-12-19T10:20:00+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-19:my-first-post/</id><summary type="html">&lt;p&gt;This is the content of my first blog post with many to come.&lt;/p&gt;
 &lt;p&gt;I will post mainly about Technology. To be more specific: python, django, git, best software practices...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -142,4 +143,4 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The blog is made with Pelican and gh-pages.&lt;/p&gt;</summary><category term="pelican"></category><category term="Start"></category></entry></feed>
+&lt;p&gt;The blog is made with Pelican and gh-pages.&lt;/p&gt;</summary><category term="pelican"></category></entry></feed>
