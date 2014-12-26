@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Vaseem's blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/all.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-23T13:59:33+05:30</updated><entry><title>Solr Setup 101</title><link href="http://vaseem-khan.github.io/solr-setup-101/" rel="alternate"></link><updated>2014-12-23T13:59:33+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-23:solr-setup-101/</id><summary type="html">&lt;p&gt;This is a simple django-haystack example that uses Solr as the backend. It is based on the official &lt;a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html"&gt;django-haystack tutorial&lt;/a&gt;. Here, we’ll be adding &lt;strong&gt;search functionality to a simple note-taking application.&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Vaseem's blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/all.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-26T16:51:35+05:30</updated><entry><title>Untrack Files from git</title><link href="http://vaseem-khan.github.io/untrack-files-from-git/" rel="alternate"></link><updated>2014-12-26T16:51:35+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-26:untrack-files-from-git/</id><summary type="html">&lt;p&gt;When devloping we encounter that a file is tracked under git, you have made changes to it but now needs to push.&lt;/p&gt;
+&lt;p&gt;One example can be changes in setings(local changes) file.&lt;/p&gt;
+&lt;p&gt;One option is to stash changes. Push and apply stash. Follow these steps at time of every push.&lt;/p&gt;
+&lt;p&gt;but I prefer using &lt;a href="https://www.kernel.org/pub/software/scm/git/docs/git-update-index.html"&gt;git update-index&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git update-index --assume-unchanged file_name
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now this file will be untrack until you want to start keeping track again&lt;/p&gt;
+&lt;p&gt;By excuting thois command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git update-index --no-assume-unchanged file_name
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and we escape from frequent stash before every push.&lt;/p&gt;</summary><category term="Git"></category></entry><entry><title>Solr Setup 101</title><link href="http://vaseem-khan.github.io/solr-setup-101/" rel="alternate"></link><updated>2014-12-23T13:59:33+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-23:solr-setup-101/</id><summary type="html">&lt;p&gt;This is a simple django-haystack example that uses Solr as the backend. It is based on the official &lt;a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html"&gt;django-haystack tutorial&lt;/a&gt;. Here, we’ll be adding &lt;strong&gt;search functionality to a simple note-taking application.&lt;/strong&gt;&lt;/p&gt;
 &lt;h4&gt;&lt;strong&gt;Basic Setup:&lt;/strong&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Django&lt;/li&gt;

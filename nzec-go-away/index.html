@@ -1,59 +1,90 @@
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>NZEC go away</title>
-  <meta name="author" content="Vaseem Ahmed Khan">
+        <title>Vaseem's blog</title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+        <!-- CSS -->
+        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/css/font-awesome.css" type="text/css" />
+        <meta charset="utf-8" />
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="../favicon.png" rel="icon">
-  <link href="../theme/css/main.css" media="screen, projection"
-        rel="stylesheet" type="text/css">
-  <script src="../theme/js/modernizr-2.0.js"></script>
-  <script src="../theme/js/ender.js"></script>
-  <script src="../theme/js/octopress.js" type="text/javascript"></script>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript">
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
+
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script>
 </head>
 
-<body>
-  <header role="banner"><hgroup>
-  <h1><a href="../">Vaseem's blog</a></h1>
-</hgroup></header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-</ul>
-
-
-
-<ul class="main-navigation">
-    <li><a href="/">Home</a></li>
-    <li><a href="/pages/about.html">About Me</a></li>
-    <li><a href="http://vaseem-khan.github.io">Profile</a></li>
-    <li><a href="/category/posts.html">Posts</a></li>
-</ul></nav>
-  <div id="main">
-    <div id="content">
-<div>
-  <article class="hentry" role="article">
-<header>
-      <h1 class="entry-title">NZEC go away</h1>
-      <p class="meta"><time datetime="2014-12-19T15:20:00+05:30" pubdate>Fri 19 December 2014 </time>
-<i class="fa fa-clock-o"></i> 1 min read
-</p>
-</header>
-
-  <div class="entry-content"><p>Taking input in python for SPOJ</p>
+<body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li class="current"><a href="..">Blog</a> </li>
+          <li><a href="../archives.html">Archive</a></li>
+          <li><a href="../tags.html">Tags</a> </li>
+          <li><a href="">RSS</a> </li>
+        </ol>
+      </div>
+        <header id="banner" class="body">
+                <div class="banner"><a href="..">Vaseem's blog <strong></strong></a></div>
+        </header><!-- /#banner -->
+      <!--   <nav id="menu"><ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/about.html">About Me</a></li>
+            <li><a href="http://vaseem-khan.github.io">Profile</a></li>
+            <li><a href="/category/posts.html">Posts</a></li>
+            <li class="active"><a href="../category/posts.html">Posts</a></li>
+        </ul></nav> -->
+        <!-- /#menu -->
+        <div class="social">
+                        <a href="http://github.com/vaseem-khan"><i class="icon-github"></i>  </a>
+                        <a href="https://twitter.com/vakhan93"><i class="icon-twitter"></i>  </a>
+                        <a href="http://www.linkedin.com/in/vakhan93"><i class="icon-linkedin"></i>  </a>
+                        <a href="mailto:vakhan93@gmail.com"><i class="icon-envelope"></i> </a>
+                </div>
+        <div class="box">
+<section id="content" class="body">
+  <header class="post">
+    <h1 class="entry-title">
+      NZEC go away
+    </h1>
+  </header>
+  <footer class="post-info">
+    <abbr>
+      Fri 19 December 2014 | <i class="fa fa-clock-o"></i> 1 min read
+ |
+         By <a class="url fn" href="../author/vaseem-ahmed-khan.html">Vaseem Ahmed Khan</a>
+    </abbr>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Taking input in python for SPOJ</p>
 <ol>
 <li>
 <p>Reading Till EOF(End of file) in python</p>
@@ -88,122 +119,37 @@
 
 <p><strong>Explanation:</strong> Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required</p>
 </li>
-</ol></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Vaseem Ahmed Khan</span>
-  </span>
-<time datetime="2014-12-19T15:20:00+05:30" pubdate>Fri 19 December 2014 </time>
-<i class="fa fa-clock-o"></i> 1 min read
-  <span class="categories">
-    <a class="category" href="../tag/spoj.html">spoj</a>
-    <a class="category" href="../tag/codechef.html">codechef</a>
-    <a class="category" href="../tag/python.html">python</a>
-  </span>
-</p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="../nzec-go-away/" data-via="vakhan93" data-counturl="../nzec-go-away/" >Tweet</a>
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-</div>    </footer>
-  </article>
+</ol>
+  </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'vaseem-blog'; 
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
-</div>
-<aside class="sidebar">
-  <section>
-    <h1>Recent Posts</h1>
-    <ul id="recent_posts">
-      <li class="post">
-          <a href="../solr-setup-101/">Solr Setup 101</a>
-      </li>
-      <li class="post">
-          <a href="../nzec-go-away/">NZEC go away</a>
-      </li>
-      <li class="post">
-          <a href="../my-first-post/">Caio</a>
-      </li>
-    </ul>
-  </section>
-  <section>
-      
-    <h1>Categories</h1>
-    <ul id="recent_posts">
-        <li><a href="../category/posts.html">Posts</a></li>
-    </ul>
-  </section>
- 
-
-  <section>
-  <h1>Tags</h1>
-    <a href="../tag/python.html">python</a>,    <a href="../tag/pelican.html">pelican</a>,    <a href="../tag/spoj.html">spoj</a>,    <a href="../tag/solr.html">Solr</a>,    <a href="../tag/codechef.html">codechef</a>  </section>
-
-
-    <section>
-        <h1>Social</h1>
-        <ul>
-            <li><a href="http://github.com/vaseem-khan" target="_blank">github</a></li>
-            <li><a href="https://twitter.com/vakhan93" target="_blank">twitter</a></li>
-            <li><a href="http://www.linkedin.com/in/vakhan93" target="_blank">linkedin</a></li>
-        </ul>
-    </section>
-
-<section>
-    <a href="http://twitter.com/vakhan93" class="twitter-follow-button" data-show-count="true">Follow @vakhan93</a>
-</section>
-</aside>    </div>
-  </div>
-  <footer role="contentinfo"><p>
-    Copyright &copy;  2014  - Vaseem Ahmed Khan -
-  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
-</p></footer>
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-57865970-1']);
-    _gaq.push(['_trackPageview']);
     (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-57865970-1');
-    ga('send', 'pageview');
 </script>
-	<script type="text/javascript">
-	  var disqus_shortname = 'vaseem-blog';
-          var disqus_identifier = '/nzec-go-away/';
-          var disqus_url = '../nzec-go-away/';
-          var disqus_title = 'NZEC go away';
-	  (function() {
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	   })();
-	</script>
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+            <hr/>
+            <footer id="contentinfo" class="footer">
+                <div>
+                    <a href="..">Vaseem Ahmed Khan</a>
+                </div>
+                <div>
+                    powered by <a href="http://getpelican.com/">Pelican</a>
+                    and <a href="http://python.org">Python</a>.
+                    <a href="http://github.com/slok/iris">Theme</a>
+                </div>
+                <div>
+                    Social icons (font awesome) by <a href="http://fortawesome.github.com/Font-Awesome/"> fort awesome</a>.
+                </div>
+
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Vaseem's blog <small>python</small></title>
+        <title>Vaseem's blog <small>Git</small></title>
         <!-- Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
@@ -77,53 +77,32 @@
             <article class="archive">
                 <header>
                     <h1 class="archive-entry-title">
-                        <a href="../nzec-go-away/" rel="bookmark" title="Permalink to NZEC go away">NZEC go away</a>
+                        <a href="../untrack-files-from-git/" rel="bookmark" title="Permalink to Untrack Files from git">Untrack Files from git</a>
                     </h1>
                 </header>
                 <footer class="post-info">
                     <abbr>
-                      Fri 19 December 2014 | <i class="fa fa-clock-o"></i> 1 min read
+                      Fri 26 December 2014 | <i class="fa fa-clock-o"></i> 1 min read
  |
                          By <a class="url fn" href="../author/vaseem-ahmed-khan.html">Vaseem Ahmed Khan</a>
                     </abbr>
-                    <div class="entry-content"> <p>Taking input in python for SPOJ</p>
-<ol>
-<li>
-<p>Reading Till EOF(End of file) in python</p>
-<p>On SPOJ there are question on which you have to read the input till end of line</p>
-<div class="highlight"><pre><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c"># your code here</span>
-        <span class="c">#in=raw_input()</span>
-
-    <span class="k">except</span> <span class="p">:</span>
-        <span class="k">break</span>
+                    <div class="entry-content"> <p>When devloping we encounter that a file is tracked under git, you have made changes to it but now needs to push.</p>
+<p>One example can be changes in setings(local changes) file.</p>
+<p>One option is to stash changes. Push and apply stash. Follow these steps at time of every push.</p>
+<p>but I prefer using <a href="https://www.kernel.org/pub/software/scm/git/docs/git-update-index.html">git update-index</a></p>
+<div class="highlight"><pre>git update-index --assume-unchanged file_name
 </pre></div>
 
 
-<p><strong>Explanation:</strong> We user here exception as when EOF is reached  input procedure will return exception which is catches by except block so this will  terminate at EOF.</p>
-</li>
-<li>
-<p>Trick for input  where you are give no of test case and each test case  it has n item (in this example let it be 3)</p>
-<p>5</p>
-<p>1 2 3</p>
-<p>1 2 2</p>
-<p>12 45 232</p>
-<p>21 343 54</p>
-<p>121 232 43</p>
-<div class="highlight"><pre><span class="n">t</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">t</span><span class="p">:</span>
-    <span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
-    <span class="c">#algorithm  to solve the question</span>
-    <span class="n">t</span><span class="o">-=</span><span class="mi">1</span>
+<p>Now this file will be untrack until you want to start keeping track again</p>
+<p>By excuting thois command</p>
+<div class="highlight"><pre>git update-index --no-assume-unchanged file_name
 </pre></div>
 
 
-<p><strong>Explanation:</strong> Here split() functions covets the input read as sting in to list separated by white spaces . so we use this property and typecast these list item to integer and assign it to variable as required</p>
-</li>
-</ol>
+<p>and we escape from frequent stash before every push.</p>
 
-                    <a href="../nzec-go-away/">Link</a></div>
+                    <a href="../untrack-files-from-git/">Link</a></div>
                 </footer><!-- /.post-info -->
                 <!-- /.entry-content -->
             </article>
