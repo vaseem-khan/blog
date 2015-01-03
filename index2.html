@@ -77,6 +77,125 @@
             <article class="archive">
                 <header>
                     <h1 class="archive-entry-title">
+                        <a href="./solr-setup-101/" rel="bookmark" title="Permalink to Solr Setup 101">Solr Setup 101</a>
+                    </h1>
+                </header>
+                <footer class="post-info">
+                    <abbr>
+                      Tue 23 December 2014 | <i class="fa fa-clock-o"></i> 2 min read
+ |
+                         By <a class="url fn" href="./author/vaseem-ahmed-khan.html">Vaseem Ahmed Khan</a>
+                    </abbr>
+                    <div class="entry-content"> <p>This is a simple django-haystack example that uses Solr as the backend. It is based on the official <a href="http://django-haystack.readthedocs.org/en/latest/tutorial.html">django-haystack tutorial</a>. Here, we’ll be adding <strong>search functionality to a simple note-taking application.</strong></p>
+<h4><strong>Basic Setup:</strong></h4>
+<ul>
+<li>Django</li>
+<li>django-haystack</li>
+<li>pysolr</li>
+</ul>
+<p>Install the following using the commands:</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install django
+<span class="nv">$ </span>pip install django-haystack
+<span class="nv">$ </span>pip install pysolr
+</pre></div>
+
+
+<h5><strong>Solr setup:</strong></h5>
+<p>For haystack connections, i am using Solr as the backend so Solr needs to be setup.To run the Solr server, Java must be installed on your machine. If you don't have Java installed in your system, first install it using the steps below:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo add-apt-repository ppa:webupd8team/java
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install oracle-java7-installer
+<span class="nv">$ </span>sudo apt-get install oracle-java7-set-default
+<span class="nv">$ </span>java -version
+</pre></div>
+
+
+<p>After installing java, download Solr from its <strong><a href="https://lucene.apache.org/solr/downloads.html">official site</a></strong> and extract it. I used Apache Solr 4.10.1. It is not necessary that it must reside in the project directory. Now after extracting it, go to the extracted folder in terminal.</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;extracted_folder_path&gt;/solr-4.10.1/example/
+<span class="nv">$ </span>java -jar start.jar
+</pre></div>
+
+
+<p>This will start Solr server on port 8983. You can check if the Solr server has started by typing <a href="http://127.0.0.1:8983/solr/">http://127.0.0.1:8983/solr/</a> on your browser.</p>
+<h4><strong>Running the project</strong></h4>
+<ol>
+<li>
+<p><strong>Download</strong> and in the terminal, move into the project simple_django_haystack_solr_example.</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;your_project_path&gt;/simple_django_haystack_solr_example/
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Setup the database:</strong></p>
+<p>I have used mysql as the database for the project. For that ,you will have to create a database in mysql using       its shell. You can use any name for your database but then change the database name  in your project's settings.py file accordingly.</p>
+<div class="highlight"><pre>mysql&gt; create database solr_tutorial character set utf8
+</pre></div>
+
+
+<p>Now move into the simple_django_haystack_solr_example folder in your terminal.</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> &lt;your_project_path&gt;/simple_django_haystack_solr_example/
+<span class="nv">$ </span>python manage.py syncdb
+</pre></div>
+
+
+<p>This will create all the database tables for our project.</p>
+</li>
+<li>
+<p><strong>Generate the schema</strong></p>
+<p>Solr’s configuration is XML-based, so we’ll need to manually regenerate the schema. Run the following command first from your project inside terminal, drop the XML output in your Solr’s schema.xml file and restart your Solr  server.</p>
+<div class="highlight"><pre><span class="nv">$ </span>python manage.py build_solr_schema
+</pre></div>
+
+
+<p>Solr's xml file can be found at the following path:</p>
+<div class="highlight"><pre>&lt;extracted_folder_path&gt;/solr-4.10.1/example/solr/collection1/conf/schema.xml
+</pre></div>
+
+
+<p>I have added my Solr conf file for schema.xml in case you get stuck here.</p>
+</li>
+<li>
+<p><strong>Create some test data</strong> for creating the indexes.</p>
+</li>
+<li>
+<p><strong>Start solr server:</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo java -jar start.jar
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Build solr index:</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>python manage.py rebuild_index
+</pre></div>
+
+
+<p>By doing this, you’ll get some totals of how many models were processed and placed in the index.</p>
+</li>
+<li>
+<p><strong>Run the Django development server:</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>python manage.py runserver
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Go to search page:</strong>
+    <a href="http://localhost:8000/search">http://localhost:8000/search</a></p>
+</li>
+</ol>
+<p><a href="https://github.com/rahulgupta92">credits: Rahul Gupta</a></p>
+
+                    <a href="./solr-setup-101/">Further <i class="fa fa-external-link"></i></a></div>
+                </footer><!-- /.post-info -->
+                <!-- /.entry-content -->
+            </article>
+        </li>
+        <li>
+            <article class="archive">
+                <header>
+                    <h1 class="archive-entry-title">
                         <a href="./nzec-go-away/" rel="bookmark" title="Permalink to NZEC go away">NZEC go away</a>
                     </h1>
                 </header>
@@ -123,37 +242,7 @@
 </li>
 </ol>
 
-                    <a href="./nzec-go-away/">Link</a></div>
-                </footer><!-- /.post-info -->
-                <!-- /.entry-content -->
-            </article>
-        </li>
-        <li>
-            <article class="archive">
-                <header>
-                    <h1 class="archive-entry-title">
-                        <a href="./my-first-post/" rel="bookmark" title="Permalink to Caio">Caio</a>
-                    </h1>
-                </header>
-                <footer class="post-info">
-                    <abbr>
-                      Fri 19 December 2014 | <i class="fa fa-clock-o"></i> 1 min read
- |
-                         By <a class="url fn" href="./author/vaseem-ahmed-khan.html">Vaseem Ahmed Khan</a>
-                    </abbr>
-                    <div class="entry-content"> <p>This is the content of my first blog post with many to come.</p>
-<p>I will post mainly about Technology. To be more specific: python, django, git, best software practices...</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">hi</span><span class="p">()</span>
-</pre></div>
-
-
-<p>The blog is made with Pelican and gh-pages.</p>
-
-                    <a href="./my-first-post/">Link</a></div>
+                    <a href="./nzec-go-away/">Further <i class="fa fa-external-link"></i></a></div>
                 </footer><!-- /.post-info -->
                 <!-- /.entry-content -->
             </article>
@@ -162,13 +251,14 @@
 </div>
 <p class="paginator">
             <a href="./index.html">&laquo;</a>
-    Page 2 / 2
+    Page 2 / 3
+        <a href="./index3.html">&raquo;</a>
 </p>
 </section><!-- /#content -->
             <hr/>
             <footer id="contentinfo" class="footer">
                 <div>
-                    <a href=".">Vaseem Ahmed Khan</a>
+                    <a href="./pages/about">Vaseem Ahmed Khan</a>
                 </div>
                 <div>
                     powered by <a href="http://getpelican.com/">Pelican</a>

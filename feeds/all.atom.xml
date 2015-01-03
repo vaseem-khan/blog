@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Vaseem's blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/all.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2014-12-26T16:51:35+05:30</updated><entry><title>Untrack Files from git</title><link href="http://vaseem-khan.github.io/untrack-files-from-git/" rel="alternate"></link><updated>2014-12-26T16:51:35+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-26:untrack-files-from-git/</id><summary type="html">&lt;p&gt;When devloping we encounter that a file is tracked under git, you have made changes to it but now needs to push.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Vaseem's blog</title><link href="http://vaseem-khan.github.io/" rel="alternate"></link><link href="http://vaseem-khan.github.io/feeds/all.atom.xml" rel="self"></link><id>http://vaseem-khan.github.io/</id><updated>2015-01-03T16:37:54+05:30</updated><entry><title>How to set-up virtualenv</title><link href="http://vaseem-khan.github.io/how-to-set-up-virtualenv-batteries-included/" rel="alternate"></link><updated>2015-01-03T16:37:54+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2015-01-03:how-to-set-up-virtualenv-batteries-included/</id><summary type="html">&lt;p&gt;On a newly installed &lt;code&gt;Ubuntu&lt;/code&gt; system,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install python &lt;a href="https://pythonhosted.org/setuptools/"&gt;&lt;code&gt;setuptools&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python-setuptools
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href="http://pip.readthedocs.org/en/latest/"&gt;&lt;code&gt;pip&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo easy_install pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enable package caching for pip by adding the following in &lt;code&gt;~/.pip/pip.conf&lt;/code&gt; file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[global]&lt;/span&gt;
+&lt;span class="na"&gt;download-cache&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;~/.cache/pip&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href="http://virtualenv.readthedocs.org/en/latest/"&gt;&lt;code&gt;virtualenv&lt;/code&gt;&lt;/a&gt; and &lt;a href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;&lt;code&gt;virtualenvwrapper&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo pip install virtualenv
+sudo pip install virtualenvwrapper
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add following snippet to &lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="x"&gt; virtualenvwrapper stuff for .bashrc&lt;/span&gt;
+&lt;span class="x"&gt;VENVW=&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;$(&lt;/span&gt;&lt;span class="err"&gt;command&lt;/span&gt; &lt;span class="err"&gt;-v&lt;/span&gt; &lt;span class="err"&gt;virtualenvwrapper.sh&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="x"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="x"&gt;if [ &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;VENVW&lt;/span&gt;&lt;span class="x"&gt; != &amp;quot;&amp;quot; ]; then&lt;/span&gt;
+&lt;span class="x"&gt;  . &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;VENVW&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;  export WORKON_HOME=&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/virtualenvs&lt;/span&gt;
+&lt;span class="x"&gt;  export PROJECT_HOME=&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/projects&lt;/span&gt;
+&lt;span class="x"&gt;fi&lt;/span&gt;
+&lt;span class="x"&gt;unset VENVW&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Read about virtualenv and virtualenvwrapper. Many helper commands like &lt;code&gt;mkvirtualenv&lt;/code&gt;, &lt;code&gt;mktmpenv&lt;/code&gt;, &lt;code&gt;mkproject&lt;/code&gt;, &lt;code&gt;workon&lt;/code&gt;, &lt;code&gt;deactivate&lt;/code&gt;, &lt;code&gt;cdproject&lt;/code&gt;, &lt;code&gt;cdvirtualenv&lt;/code&gt;, &lt;code&gt;cdsitepackages&lt;/code&gt;, &lt;code&gt;lssitepackages&lt;/code&gt;, etc. are provided by virtualenvwrapper.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Be creative with various hooks like &lt;code&gt;postactivate&lt;/code&gt;, &lt;code&gt;postdeactivate&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Virtualenv"></category><category term="Python"></category></entry><entry><title>Untrack Files From Git</title><link href="http://vaseem-khan.github.io/untrack-files-from-git/" rel="alternate"></link><updated>2014-12-26T17:23:24+05:30</updated><author><name>Vaseem Ahmed Khan</name></author><id>tag:vaseem-khan.github.io,2014-12-26:untrack-files-from-git/</id><summary type="html">&lt;p&gt;When devloping we encounter that a file is tracked under git, you have made changes to it but now needs to push.&lt;/p&gt;
 &lt;p&gt;One example can be changes in setings(local changes) file.&lt;/p&gt;
 &lt;p&gt;One option is to stash changes. Push and apply stash. Follow these steps at time of every push.&lt;/p&gt;
 &lt;p&gt;but I prefer using &lt;a href="https://www.kernel.org/pub/software/scm/git/docs/git-update-index.html"&gt;git update-index&lt;/a&gt;&lt;/p&gt;
